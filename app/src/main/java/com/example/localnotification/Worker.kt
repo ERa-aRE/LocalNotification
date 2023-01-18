@@ -9,7 +9,7 @@ class Worker(context: Context, workerParameters: WorkerParameters) :
     androidx.work.Worker(context, workerParameters) {
     private val service = NotificationService(context)
     override fun doWork(): Result {
-        service.showNotification(ArbitraryInfo("tonight","once"))
+        service.showNotification(ArbitraryInfo("بزودی :",""))
         return Result.success()
     }
 }

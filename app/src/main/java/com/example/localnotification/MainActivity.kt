@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.work.*
 import com.example.localnotification.domain.ArbitraryInfo
+import com.example.localnotification.presentaion.CurvedScrollView
 import com.example.localnotification.ui.theme.LocalNotificationTheme
 import java.util.concurrent.TimeUnit
 
@@ -23,6 +24,17 @@ class MainActivity : ComponentActivity() {
         dateCheckerFunction()
         super.onCreate(savedInstanceState)
         val service = NotificationService(applicationContext)
+        val menuList =
+            listOf(
+                "Birthdays",
+                "Marriage",
+                "Special events",
+                "Work events",
+                "setting",
+                "about us",
+                "contact us",
+                ""
+            )
         setContent {
             LocalNotificationTheme {
                 // A surface container using the 'background' color from the theme
@@ -30,9 +42,20 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting(service)
+                    //Greeting(service)
+                    CurvedScrollView(menuList) { eachRoute ->
+                        cardView(text = eachRoute)
+
+                    }
                 }
             }
+        }
+    }
+
+    @Composable
+    private fun cardView(text: String) {
+        Column(modifier = Modifier.padding(8.dp), verticalArrangement = Arrangement.Center) {
+            Text(text = text)
         }
     }
 
@@ -43,8 +66,8 @@ class MainActivity : ComponentActivity() {
             .build()
         val workRequest = PeriodicWorkRequest.Builder(
             Worker::class.java,
-            15,
-            TimeUnit.MINUTES
+            1,
+            TimeUnit.DAYS
         ).setConstraints(constraints)
             .addTag("first worker")
             .build()

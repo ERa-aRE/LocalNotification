@@ -15,8 +15,8 @@ class BootCompletedReceiver():BroadcastReceiver() {
                 .build()
             val workRequest = PeriodicWorkRequest.Builder(
                 Worker::class.java,
-                15,
-                TimeUnit.MINUTES
+                1,
+                TimeUnit.DAYS
             ).setConstraints(constraints)
                 .addTag("first worker")
                 .build()
