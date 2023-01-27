@@ -13,8 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.work.*
 import com.chargemap.compose.numberpicker.ListItemPicker
 import com.chargemap.compose.numberpicker.NumberPicker
-import com.example.localnotification.domain.ArbitraryInfo
-import com.example.localnotification.presentaion.CurvedScrollView
+import com.example.localnotification.domain.util.ArbitraryInfo
 import com.example.localnotification.ui.theme.LocalNotificationTheme
 import java.util.concurrent.TimeUnit
 
@@ -49,14 +48,14 @@ class MainActivity : ComponentActivity() {
                         cardView(text = eachRoute)
 
                     }*/
-                    numberAndListCard()
+                    NumberAndListCard()
                 }
             }
         }
     }
 
     @Composable
-    private fun numberAndListCard() {
+    private fun NumberAndListCard() {
         var day by remember {
             mutableStateOf(0)
         }
@@ -133,7 +132,7 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun cardView(text: String) {
+    private fun CardView(text: String) {
         Column(modifier = Modifier.padding(8.dp), verticalArrangement = Arrangement.Center) {
             Text(text = text)
         }
@@ -142,7 +141,7 @@ class MainActivity : ComponentActivity() {
     }
 
 
-    fun dateCheckerFunction() {
+    private fun dateCheckerFunction() {
         val constraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
             .build()

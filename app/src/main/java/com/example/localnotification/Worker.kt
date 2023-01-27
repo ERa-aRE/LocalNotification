@@ -2,7 +2,7 @@ package com.example.localnotification
 
 import android.content.Context
 import androidx.work.WorkerParameters
-import com.example.localnotification.domain.ArbitraryInfo
+import com.example.localnotification.domain.util.ArbitraryInfo
 
 
 class Worker(context: Context, workerParameters: WorkerParameters) :

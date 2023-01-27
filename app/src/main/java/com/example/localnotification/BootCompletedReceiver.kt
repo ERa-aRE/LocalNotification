@@ -6,7 +6,7 @@ import android.content.Intent
 import androidx.work.*
 import java.util.concurrent.TimeUnit
 
-class BootCompletedReceiver():BroadcastReceiver() {
+class BootCompletedReceiver :BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         if(intent?.action==Intent.ACTION_BOOT_COMPLETED)
         {

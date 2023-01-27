@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.example.localnotification.domain.ArbitraryInfo
+import com.example.localnotification.domain.util.ArbitraryInfo
 
 
 

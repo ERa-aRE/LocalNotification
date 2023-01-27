@@ -109,10 +109,13 @@ dependencies {
     //dagger hilt
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+
+
+
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.3.0"
 }
-// Allow references to generated code
-/*kapt {
-    correctErrorTypes true
-}*/
+
 
 

@@ -6,7 +6,10 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import com.example.localnotification.NotificationService.Companion.Notification_Channel_ID
+import dagger.hilt.android.HiltAndroidApp
 
+
+@HiltAndroidApp
 class MyApp:Application() {
     override fun onCreate() {
         super.onCreate()
