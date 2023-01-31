@@ -9,50 +9,74 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import androidx.work.*
 import com.chargemap.compose.numberpicker.ListItemPicker
 import com.chargemap.compose.numberpicker.NumberPicker
 import com.example.localnotification.domain.util.ArbitraryInfo
 import com.example.localnotification.ui.theme.LocalNotificationTheme
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
 
-    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+    lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
-        dateCheckerFunction()
         super.onCreate(savedInstanceState)
 
-        val service = NotificationService(applicationContext)
-        val menuList =
-            listOf(
-                "Birthdays",
-                "Marriage",
-                "Special events",
-                "Work events",
-                "setting",
-                "about us",
-                "contact us",
-                ""
-            )
         setContent {
-            LocalNotificationTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    //Greeting(service)
-                    /*CurvedScrollView(menuList) { eachRoute ->
-                        cardView(text = eachRoute)
-
-                    }*/
-                    NumberAndListCard()
+            LocalNotificationTheme(darkTheme = false) {
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                   // RootNavGraph(navController = rememberNavController())
                 }
             }
         }
     }
+}
+
+
+
+/*
+    //@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+
+
+    /////////
+    val service = NotificationService(applicationContext)
+    val menuList =
+        listOf(
+            "Birthdays",
+            "Marriage",
+            "Special events",
+            "Work events",
+            "setting",
+            "about us",
+            "contact us",
+            ""
+        )
+
+
+    //set content
+    LocalNotificationTheme {
+        // A surface container using the 'background' color from the theme
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            //Greeting(service)
+            /*CurvedScrollView(menuList) { eachRoute ->
+                cardView(text = eachRoute)
+
+            }*/
+            NumberAndListCard()
+        }
+    }
+
+
+
 
     @Composable
     private fun NumberAndListCard() {
@@ -199,5 +223,5 @@ fun Greeting(service: NotificationService) {
         }
 
     }
-}
 
+*/
