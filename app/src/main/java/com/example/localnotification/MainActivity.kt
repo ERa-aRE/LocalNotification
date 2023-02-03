@@ -18,6 +18,8 @@ import androidx.work.*
 import com.chargemap.compose.numberpicker.ListItemPicker
 import com.chargemap.compose.numberpicker.NumberPicker
 import com.example.localnotification.domain.util.ArbitraryInfo
+import com.example.localnotification.presentaion.SplashScreen
+import com.example.localnotification.presentaion.navigation.SetupNavGraph
 import com.example.localnotification.ui.theme.LocalNotificationTheme
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -30,8 +32,9 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             LocalNotificationTheme(darkTheme = false) {
+                navController = rememberNavController()
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-                   // RootNavGraph(navController = rememberNavController())
+                    SetupNavGraph(navController = navController)
                 }
             }
         }

@@ -13,6 +13,7 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import kotlin.math.PI
 import kotlin.math.cos
 
@@ -20,6 +21,7 @@ import kotlin.math.cos
 
 @Composable
 fun <T> CurvedScrollView(
+    nanController: NavController,
     items: List<T>,
     contentSpacing: Dp = 8.dp,
     reversed: Boolean = false,
