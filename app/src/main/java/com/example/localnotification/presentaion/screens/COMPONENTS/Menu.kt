@@ -1,23 +1,18 @@
 package com.example.localnotification.presentaion
 
 import androidx.compose.foundation.layout.Box
-
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.onSizeChanged
-
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlin.math.PI
 import kotlin.math.cos
-
-
 
 @Composable
 fun <T> CurvedScrollView(
